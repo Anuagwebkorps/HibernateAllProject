@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+     <!-- In case of Table Per Concrete class, there will be three tables in 
+    the database having no relations to each other.  -->
+    
+    <class name="pp.Trainer" table="tr">
+    <id name="tid">
+    <generator class="assigned"></generator>
+    </id>
+    <property name="tname"></property>
+    <union-subclass name="pp.RegTrainer" table="rtr">
+    <property name="sal"></property>
+    <property name="timing"></property>
+    </union-subclass>
+    <union-subclass name="pp.TempTrainer" table="ttr">
+    <property name="amount"></property>
+    <property name="batches"></property>
+    </union-subclass>
+    </class>
+    </hibernate-mapping>

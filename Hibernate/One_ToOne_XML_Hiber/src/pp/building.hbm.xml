@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="pp.Building" table="Buildingg">
+<id name="bno">
+<generator class="increment"></generator>
+</id>
+<property name="bname"></property>
+<one-to-one name="address" cascade="all"></one-to-one>
+</class>
+</hibernate-mapping>
+
+<!-- cascade="all" Cascading is a feature in Hibernate, which is used to manage the state of the mapped entity whenever 
+the state of its relationship owner (superclass) affected. When the relationship owner (superclass) is 
+saved/ deleted, then the mapped entity associated with it should also be saved/ deleted automatically -->

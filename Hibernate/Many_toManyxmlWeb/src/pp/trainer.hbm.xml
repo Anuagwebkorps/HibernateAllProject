@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="pp.Trainer" table="tr">
+<id name="tid">
+<generator class="assigned"></generator>
+</id>
+<property name="tname"></property>
+<property name="languages"></property>
+<set name="students" cascade="all" inverse="false" table="trst"> <!-- inverse se double value nahi aye gii -->
+<key column="tid"></key>
+<many-to-many class="pp.Student" column="sid"></many-to-many>
+</set>
+</class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="pp.Trainer" table="trainer" discriminator-value="trainer">
+<id name="tid">
+<generator class="assigned"></generator>
+</id>
+<discriminator column="type" type="java.lang.String"></discriminator>
+<property name="tname"></property>
+<subclass name="pp.RegTrainer" discriminator-value="regtrainer">
+<property name="sal"></property>
+<property name="timing"></property>
+</subclass>
+<subclass name="pp.TempTrainer" discriminator-value="temptrainer">
+<property name="amount"></property>
+<property name="batches"></property>
+</subclass>
+</class>
+
+</hibernate-mapping>

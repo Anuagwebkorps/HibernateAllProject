@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    <hibernate-mapping>
+    <class name="pp.Student" table="Stu">
+    <id name="sid">
+    <generator class="assigned"></generator>
+    </id>
+    <property name="sname"></property>
+    <property name="branch"></property>
+    <property name="year"></property>
+    </class>
+    <class name="pp.Trainer" table="Trainn">
+    <id name="tid">
+    <generator class="assigned"></generator>
+    </id>
+    <property name="tname"></property>
+    <property name="languages"></property>
+    <bag name="students" cascade="all">
+    <key column="tid"></key>
+    <one-to-many class="pp.Student"  />
+    </bag>
+    </class>
+    </hibernate-mapping>
